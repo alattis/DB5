@@ -26,7 +26,9 @@
 	if (self == nil)
 		return nil;
 	
-	NSString *themesFilePath = [[NSBundle mainBundle] pathForResource:@"DB5" ofType:@"plist"];
+    NSString *themeName = [[[NSBundle mainBundle] objectForInfoDictionaryKey:@"THEME"] stringByAppendingString:@"Theme"];
+
+	NSString *themesFilePath = [[NSBundle mainBundle] pathForResource:themeName ofType:@"plist"];
 	NSDictionary *themesDictionary = [NSDictionary dictionaryWithContentsOfFile:themesFilePath];
 	
 	NSMutableArray *themes = [NSMutableArray array];
